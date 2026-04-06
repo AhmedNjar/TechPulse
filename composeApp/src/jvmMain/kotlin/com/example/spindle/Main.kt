@@ -15,7 +15,7 @@ import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.arkivanov.essenty.lifecycle.destroy
 import com.example.spindle.di.appModule
-import com.example.spindle.domain.models.SpindleConfig
+import com.example.spindle.domain.models.*
 import com.example.spindle.presentation.navigation.*
 import com.example.spindle.presentation.screens.*
 import com.example.spindle.presentation.theme.SpindleTheme
@@ -26,7 +26,6 @@ import org.koin.compose.koinInject
 import org.koin.core.context.startKoin
 
 fun main() {
-
     // Boot Koin before any Compose code
     startKoin { modules(appModule) }
 
@@ -62,7 +61,7 @@ private fun AppShell(rootComponent: RootComponent) {
     val currentChild  = stack.active.instance
 
     val snackbarHostState = remember { SnackbarHostState() }
-    val dashVm: DashboardViewModel = koinInject()
+    val dashVm: DashboardViewModel = /*remember { koinInject() }*/ koinInject()
     val dashState by dashVm.state.collectAsState()
 
     // Collect Dashboard effects
@@ -166,7 +165,7 @@ private fun SetupScreenConnected(
     snackbar: SnackbarHostState,
     root: RootComponent
 ) {
-    val vm: SimulationSetupViewModel = koinInject()
+    val vm: SimulationSetupViewModel = /*remember { koinInject() }*/ koinInject()
     val state by vm.state.collectAsState()
     LaunchedEffect(vm) {
         vm.effect.onEach { effect ->
@@ -188,7 +187,7 @@ private fun SetupScreenConnected(
 
 @Composable
 private fun AnalyticsScreenConnected(resultId: String?, snackbar: SnackbarHostState) {
-    val vm: AnalyticsViewModel = koinInject()
+    val vm: AnalyticsViewModel = /*remember { koinInject() }*/ koinInject()
     val state by vm.state.collectAsState()
     LaunchedEffect(resultId) {
         if (resultId != null && resultId != state.resultId)
@@ -208,7 +207,7 @@ private fun OptimisationScreenConnected(
     lastConfig: SpindleConfig?,
     snackbar: SnackbarHostState
 ) {
-    val vm: OptimisationViewModel = koinInject()
+    val vm: OptimisationViewModel = /*remember { koinInject() }*/ koinInject()
     val state by vm.state.collectAsState()
     LaunchedEffect(vm) {
         vm.effect.onEach { e ->
@@ -225,7 +224,7 @@ private fun OptimisationScreenConnected(
 
 @Composable
 private fun SettingsScreenConnected(snackbar: SnackbarHostState) {
-    val vm: SettingsViewModel = koinInject()
+    val vm: SettingsViewModel = /*remember { koinInject() }*/ koinInject()
     val state by vm.state.collectAsState()
     LaunchedEffect(vm) {
         vm.effect.onEach { e ->

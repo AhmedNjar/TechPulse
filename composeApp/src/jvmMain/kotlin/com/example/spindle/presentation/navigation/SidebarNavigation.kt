@@ -123,3 +123,31 @@ private fun SidebarItem(item: NavigationItem, isActive: Boolean, onClick: () -> 
         )
     }
 }
+
+// ══════════════════════════════════════════════════════════════════
+//  @Preview
+// ══════════════════════════════════════════════════════════════════
+
+@androidx.compose.ui.tooling.preview.Preview(widthDp = 220, heightDp = 900)
+@Composable
+private fun SidebarDashboardPreview() {
+    com.example.spindle.presentation.theme.SpindleTheme {
+        AppSidebar(
+            currentItem  = NavigationItem.DASHBOARD,
+            onItemClick  = {},
+            engineOnline = true
+        )
+    }
+}
+
+@androidx.compose.ui.tooling.preview.Preview(widthDp = 220, heightDp = 900)
+@Composable
+private fun SidebarOfflinePreview() {
+    com.example.spindle.presentation.theme.SpindleTheme {
+        AppSidebar(
+            currentItem  = NavigationItem.ANALYTICS,
+            onItemClick  = {},
+            engineOnline = false
+        )
+    }
+}
