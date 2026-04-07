@@ -5,6 +5,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.*
@@ -105,7 +107,7 @@ private fun AppShell(rootComponent: RootComponent) {
             )
             Children(
                 stack     = rootComponent.stack,
-                modifier  = Modifier.weight(1f).fillMaxHeight(),
+                modifier  = Modifier.weight(1f).fillMaxHeight().clip(RectangleShape),
                 animation = stackAnimation(slide())
             ) { child ->
                 when (child.instance) {

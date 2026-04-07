@@ -580,44 +580,6 @@ import com.example.spindle.domain.models.*
 
 
 // ══════════════════════════════════════════════════════════════════
-//  @Preview — SimulationSetupScreen
-// ══════════════════════════════════════════════════════════════════
-
-    @Preview(widthDp = 1440, heightDp = 900)
-    @Composable
-    fun SimulationSetupPreview() {
-        SpindleTheme {
-            SimulationSetupScreen(
-                state = SimulationSetupState(
-                    projectName = "CNC-5000 Rev C",
-                    geometry = ShaftGeometry.defaultCncLathe(),
-                    bearingSystem = BearingSystem.defaultCncLathe(),
-                    operatingSpeedRpm = 12_000.0,
-                    radialLoadN = 1_500.0,
-                    simulationMode = SimulationMode.FULL_ANALYSIS
-                )
-            )
-        }
-    }
-
-    @Preview(widthDp = 1440, heightDp = 900)
-    @Composable
-    fun SimulationSetupValidationErrorPreview() {
-        SpindleTheme {
-            SimulationSetupScreen(
-                state = SimulationSetupState(
-                    projectName = "",
-                    isSubmitting = false,
-                    fieldErrors = mapOf(
-                        "projectName" to "Project name is required",
-                        "seg_0" to "Segment 1: ID must be < OD"
-                    )
-                )
-            )
-        }
-    }
-
-// ══════════════════════════════════════════════════════════════════
 //  @Preview — AnalyticsScreen
 // ══════════════════════════════════════════════════════════════════
 
