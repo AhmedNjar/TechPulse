@@ -18,7 +18,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
-import com.example.spindle.domain.models.SpindleConfig
 import com.example.spindle.presentation.components.*
 import com.example.spindle.presentation.theme.*
 import com.example.spindle.presentation.viewmodels.*
@@ -709,28 +708,5 @@ fun DashboardCompletePreview() {
                 RunHistoryEntry("r3", "MC-E5F6", "22 min ago", RunStatus.FAILED),
             )
         )
-    }
-}
-
-
-@Preview
-@Composable
-fun sOptimisationEvolvingPreview() {
-    SpindleTheme {
-        // نستخدم Surface الخلفية من التجربة السابقة للتأكد
-        Surface(modifier = Modifier.fillMaxSize(), color = Color.Magenta) {
-            BoxWithConstraints(Modifier.fillMaxSize()) {
-                Text("Size: $maxWidth x $maxHeight", color = Color.White)
-
-                OptimizationScreen(
-                    state = OptimisationState(
-                        phase = OptPhase.EVOLVING,
-                        // ... باقي بيانات الـ state ...
-                    ),
-                    // 👇👇👇 اجعل هذا null مؤقتاً 👇👇👇
-                    lastConfig = null
-                )
-            }
-        }
     }
 }

@@ -45,7 +45,6 @@ import com.example.spindle.presentation.theme.TextSecondary
 import com.example.spindle.presentation.viewmodels.SettingsIntent
 import com.example.spindle.presentation.viewmodels.SettingsState
 
-
 // ══════════════════════════════════════════════════════════════════
 //  SettingsScreen
 // ══════════════════════════════════════════════════════════════════
@@ -175,7 +174,6 @@ fun SettingsScreen(
 }
 
 
-
 // ══════════════════════════════════════════════════════════════════
 //  @Preview — SettingsScreen
 // ══════════════════════════════════════════════════════════════════
@@ -188,16 +186,16 @@ fun SettingsDefaultPreview() {
     }
 }
 
-@Preview//(widthDp = 1440, heightDp = 900)
+@Preview(widthDp = 1440, heightDp = 900)
 @Composable
 fun SettingsSavedPreview() {
     SpindleTheme {
         SettingsScreen(
             state = SettingsState(
-                engineUrl = "http://127.0.0.1:8000",
-                ansysExecPath = "/usr/ansys_inc/v222/ansys/bin/ansys222",
+                engineUrl          = "http://127.0.0.1:8000",
+                ansysExecPath      = "/usr/ansys_inc/v222/ansys/bin/ansys222",
                 autoNavigateOnComplete = true,
-                lastSavedAt = "2026-04-06T14:22"
+                lastSavedAt        = "2026-04-06T14:22"
             )
         )
     }
@@ -209,7 +207,7 @@ fun SettingsUrlErrorPreview() {
     SpindleTheme {
         SettingsScreen(
             state = SettingsState(
-                engineUrl = "not-a-url",
+                engineUrl      = "not-a-url",
                 engineUrlError = "Must start with http:// or https://"
             )
         )
