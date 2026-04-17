@@ -28,6 +28,7 @@ val appModule = module {
     factory { DashboardViewModel(runSimulationUseCase = get(), repository = get()) }
     factory { SimulationSetupViewModel() }
     factory { AnalyticsViewModel(repository = get()) }
+    factory { SobolViewModel(apiClient = get()) }
     factory { OptimisationViewModel(startOptimisationUseCase = get()) }
     factory { SettingsViewModel() }
 }
